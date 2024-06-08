@@ -1,0 +1,81 @@
+﻿@model PracticaV1.Models.cAlquiler
+
+@{
+    ViewData["Title"] = "Registar Alquiler";
+}
+
+<h1>Registar un Alquiler</h1>
+
+<h4>Alquileres</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="idAlquiler" class="control-label">Id del Alquiler</label>
+                <input asp-for="idAlquiler" class="form-control" />
+                <span asp-validation-for="idAlquiler" class="text-danger"></span>
+             </div>
+            <div class="form-group">
+                <label asp-for="fechaHoraEntrada" class="control-label">Fecha y Hora de entrada</label>
+                <input asp-for="fechaHoraEntrada" class="form-control" />
+                <span asp-validation-for="fechaHoraEntrada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fechaHoraSalida" class="control-label">Fecha y Hora de salida</label>
+                <input asp-for="fechaHoraSalida" class="form-control" />
+                <span asp-validation-for="fechaHoraSalida" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="costoTotal" class="control-label">Costo Total de la habitacion</label>
+                <input asp-for="costoTotal" class="form-control" />
+                <span asp-validation-for="costoTotal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="observacion" class="control-label">Observaciones</label>
+                <input asp-for="observacion" class="form-control" />
+                <span asp-validation-for="observacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fkHabitacion" class="control-label">Habitacion</label>
+                <select asp-for="fkHabitacion" class="form-control" asp-items="ViewBag.Habitacion">
+                    <option value=""> -- Seleccione una habitación--</option>
+                </select>
+                <span asp-validation-for="fkHabitacion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fkCliente" class="control-label">Estado de la habitacion</label>
+                <select asp-for="fkCliente" class="form-control" asp-items="ViewBag.Cliente">
+                    <option value=""> -- Seleccione un estado --</option>
+                </select>
+                <span asp-validation-for="fkCliente" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fkRegistrador" class="control-label">Nombre del Registrador</label>
+                <select asp-for="fkRegistrador" class="form-control" asp-items="ViewBag.Registrador">
+                    <option value=""> -- Seleccione un registrador</option>
+                </select>
+                <span asp-validation-for="fkRegistrador" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="fkEstado" class="control-label">Estado de la habitacion</label>
+                <select asp-for="fkEstado" class="form-control" asp-items="ViewBag.Estado">
+                    <option value=""> -- Seleccione un estado --</option>
+                </select>
+                <span asp-validation-for="fkEstado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Regresar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

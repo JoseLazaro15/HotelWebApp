@@ -1,0 +1,47 @@
+﻿@model IEnumerable<PracticaV1.Models.cTipoHabitacion>
+
+@{
+    ViewData["Title"] = "Tipos de Habitaciones";
+}
+
+<h1>Tipos de Habitaciones</h1>
+
+<p>
+    <a asp-action="Create">Registro de Nuevo Tipo de Habitacion</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idTipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idTipo)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.idTipo">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.idTipo">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.idTipo">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
